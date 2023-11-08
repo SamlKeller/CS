@@ -32,11 +32,9 @@ def sum_all_special (name):
 
 def sum_all_commas (name):
     with open('txt/' + name) as x:
-        x = x.read()
+        x = x.read().replace('\n', ',')
         sum = 0
-        x = x.replace('\n', ',')
-        xSplit = ''.join(x.split())
-        xSplit = xSplit.split(',')
+        xSplit = ''.join(x.split()).split(',')
         for i in range(0, len(xSplit)-1):
             sum += int(xSplit[i])
     return sum

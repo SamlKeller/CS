@@ -25,15 +25,10 @@ def all_odds (num):
     return True
 
 def make_fibos(num):
-    n = 0
-    fibs = []
-    while (generate_fib(n) < num):
-        fibs.append(generate_fib(n))
-        n += 1
-    return fibs
-
-def generate_fib (num):
+    n = 2
     fibs = [0, 1]
-    for i in range(2, num+1):
-        fibs.append(fibs[i-1] + fibs[i-2])
-    return fibs[num]
+    while (fibs[-1] < num):
+        fibs.append(fibs[n-1] + fibs[n-2])
+        n += 1
+    del fibs[-1]
+    return fibs
