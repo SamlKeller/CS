@@ -31,7 +31,6 @@ problem. I solved it entirely myself. -Samuel Stankiewicz
 '''
 
 
-#I didn't google this like the prompt said so the time complexity is awful -- I would be interested to know what the optimal solution is
 def isPrime (num):
     #technically this function is not completely correct; it will return true for 1, but given the use case it doesn't matter
     for x in range(3, int(math.sqrt(num)+1), 2):
