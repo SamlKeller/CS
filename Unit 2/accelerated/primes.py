@@ -51,5 +51,5 @@ def getTwinPrimesLessThanNum (num):
     return primesCounter-1
 
 start_time = time.time()
-print("Number of twin primes:", getTwinPrimesLessThanNum(1000000))
+print("Number of twin primes:", getTwinPrimesLessThanNum(10000))
 print("Completed in", (time.time() - start_time), "seconds")

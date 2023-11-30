@@ -36,4 +36,4 @@ def convertToBaseTen (num, base):
     return newNum
 
 #The original string, the new base, and the original base
-print(baseConverter("212", 50, 3))
+print(baseConverter("CE", 10, 16))
