@@ -54,8 +54,7 @@ def c_sub (string):
             continue
 
 
-strInput = '''Rqvrkq hadmj zvlrbhqwo ndkk jqqr haql pwvl lsjdmg ldohsjqo. Haqf'wq nwvmg. Ndha zvlrbhqwo
-fvb lsjq ldohsjqo psohqw. -Sxsl Vouvwmq, dmiqmhqw vp haq pdwoh rvwhsukq zvlrbhqw'''
+strInput = '''AAaaBBbbCCcc'''
 
 
 print(c_sub(strInput))

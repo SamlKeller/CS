@@ -7,12 +7,12 @@ def caesar_encode(txt, shift):
             ret += char
             continue
         if (char.isupper() == False):
-            if ((alph.lower().index(char)) + shift > 26):
+            if ((alph.lower().index(char)) + shift > 25):
                 ret += alph.lower()[(alph.lower().index(char)+shift)-26]
             else:
                 ret += alph.lower()[alph.lower().index(char)+shift]
         else:
-            if ((alph.index(char) + shift) > 26):
+            if ((alph.index(char) + shift) > 25):
                 ret += alph[(alph.index(char)+shift)-26]
             else:
                 ret += alph[alph.index(char)+shift]
@@ -51,6 +51,16 @@ def caesar_crack(txt):
             highestETA = tempCount
             theCrack = temp
     return theCrack
+
+
+print(caesar_crack('Dszce lyo dhppe'))
+
+pt = "SPHINX OF BLACK QUARTZ, HEAR MY VOW! sphinx of black quartz, hear my vow."
+shift = 8
+enc = caesar_encode(pt, shift)
+dec = caesar_decode(enc, shift)
+print(enc)
+print(dec)
 
 
 '''

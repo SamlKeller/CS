@@ -14,9 +14,7 @@ def decodeVigenere (code, cipher):
         result += alph[(alph.index(code[x]) - alph.index(cipher[x%len(cipher)]))%26]
     return result
 
-
-pt = "SPHINXOFBLACKQUARTZJUDGEMYVOW"
-key = "KEYWORD"
-ct = encodeVigenere(pt, key)
-dt = decodeVigenere(ct, key)
-print(ct, dt)
+pt = "IFNJVRZLLDXZUESLXNUIKHH"
+key = "GRADER"
+dt = decodeVigenere(pt, key)
+print(dt)
