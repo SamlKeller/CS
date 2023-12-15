@@ -65,3 +65,14 @@ def every_third (string):
         if (x % 3 == 0):
             string[x] = '!'
     return "".join(str(x) for x in string)
+
+
+print(replace_after("loosely"))
+print(before_after("freeloopers"))
+print(pairs("LONGER"))
+print(either35([3, 3, 5, 3, 5, 5]))
+print(either35([3, 5, 3, 5, 5]))
+print(either35([3, 3, 5, 3, 5]))
+print(either35([3, 5, 3, 5]))
+print(five_run([20, 1, 15, 7, 8, 5, 0, 8]))
+print(every_third("ooooh nooooo"))

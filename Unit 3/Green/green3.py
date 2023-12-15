@@ -53,16 +53,6 @@ def caesar_crack(txt):
     return theCrack
 
 
-print(caesar_crack('Dszce lyo dhppe'))
-
-pt = "SPHINX OF BLACK QUARTZ, HEAR MY VOW! sphinx of black quartz, hear my vow."
-shift = 8
-enc = caesar_encode(pt, shift)
-dec = caesar_decode(enc, shift)
-print(enc)
-print(dec)
-
-
 '''
 1. 'M wex hsar erh avsxi xli jmvwx gsqtmpiv. Mx aew zivc wxytmh. Alex M hmh aew
 aexgl qcwipj tyx xskixliv e tvskveq erh qeoi xli gsqtyxiv hs alex M hmh.' - Kvegi

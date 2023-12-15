@@ -102,6 +102,13 @@ def caesar_decode(txt, shift):
 
 
 pt = "SPHINX OF BLACK QUARTZ, HEAR MY VOW! sphinx of black quartz, hear my vow."
+a2 = "GWCHBUFINAMKZTQELPSJYROVXD"
+enc = substitution_encode(pt, a2)
+dec = substitution_decode(enc, a2)
+print(enc)
+print(dec)
+
+pt = "SPHINX OF BLACK QUARTZ, HEAR MY VOW! sphinx of black quartz, hear my vow."
 shift = 8
 enc = caesar_encode(pt, shift)
 dec = caesar_decode(enc, shift)
