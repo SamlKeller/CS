@@ -54,7 +54,7 @@ def c_sub (string):
             continue
 
 
-strInput = '''AAaaBBbbCCcc'''
+strInput = '''pdzn{tw_z_djmmdr_vlwu_vlwu_ogzu_ogzu_606pxxz1}'''
 
 
 print(c_sub(strInput))
