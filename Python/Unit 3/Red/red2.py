@@ -50,7 +50,6 @@ def getExponent (elm, lastExponent):
 def format (string):
     result = [[], []]
     divisor = 0
-    nextElm = 1
     firstExponent = int(string.split()[0].split('^')[1])
     lastExponent = firstExponent
     for index, elm in enumerate(string.split()):
@@ -59,10 +58,13 @@ def format (string):
             continue
         if (elm.strip() == '+' or elm.strip() == '(' or elm.strip() == ')' or elm.strip() == ''):
             continue
-        if ((getExponent(elm, lastExponent) != int(lastExponent) - 1) and (getExponent(elm, lastExponent) != lastExponent or lastExponent == 2 and 'x' not in elm.strip())):
+        if ((getExponent(elm, lastExponent) != int(lastExponent) - 1) and (getExponent(elm, lastExponent) != lastExponent or lastExponent == 2 and 'x' not in elm.strip()) or (getExponent(elm, lastExponent) == 1 and 'x^2' in string.split()[index-2] and 'x' not in elm)):
             result[0].insert(index-1, 0)
         if (elm.replace('(', '')[0] == 'x' and divisor == 0):
-            result[divisor].append(1)
+            if (string.split()[index-1].strip() == '-'):
+                result[divisor].append(-1)
+            else:
+                result[divisor].append(1)
         else:
             if (lastExponent != 1):
                 lastExponent = getExponent(elm, lastExponent)
@@ -75,11 +77,6 @@ def format (string):
             else:
                 if (elm.split('x')[0].replace('(', '').replace(')', '') != '-'):
                     result[divisor].append(int(elm.split('x')[0].replace('(', '').replace(')', '')))
-    if (string.split('/ (x ')[1].split()[0] == '+'):
-        result[1][0] = -result[1][0]
-    else:
-        result[1][0] = result[1][0]
-    print(result)
     return result
 
 [[2, 5, -1, 6, 1, 2], [-3]]
@@ -113,6 +110,6 @@ root = -3
 print(synth_alg(test, root))
 >> "2x^3 + 5x + -15 + 1 / (x - -3)"
 '''
-#print(evaluate('(5x^4 - 10x^3 + x^2 - 6x + 8 / (x - 2)')) #5x^3 + x - 4
+print(evaluate('(5x^4 - 10x^3 + x^2 - 6x + 8 / (x - 2)')) #5x^3 + x - 4
 print(evaluate('(2x^5 + 5x^4 - x^3 + 6x^2 + x + 2 / (x + 3)')) #2x^4 − x^3 + 2x^2 + 1 + −1 / x+3
-#print(evaluate('(2x^4 + 6x^3 + 5x^2 - 44) / (x + 3)')) # 2x^3 + 5x – 15 + 1 / (x + 3)
+print(evaluate('(2x^4 + 6x^3 + 5x^2 - 44) / (x + 3)')) # 2x^3 + 5x – 15 + 1 / (x + 3)
