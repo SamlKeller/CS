@@ -12,25 +12,28 @@ def synth_alg (funct, root):
         if (result[i] == 0):
             continue
         elif (len(funct) - 2 - i == 1):
-            result[i] = str(result[i]) + 'x'
+            if (result[i] == 1):
+                result[i] = 'x'
+            #result[i] = str(result[i]) + 'x'
         elif (len(funct) - 2 - i < 1):
             continue
         else:
-            if (result[i] == 1):
-                result[i] = 'x^' + str(len(funct) - 2 - i)
-            else:
-                result[i] = str(result[i]) + 'x^' + str(len(funct) - 2 - i)
+            if (result[i] != 'x'): 
+                if (result[i] == 1):
+                    result[i] = 'x^' + str(len(funct) - 2 - i)
+                elif (result[i] == -1):
+                    result[i] = '-x^' + str(len(funct) - 2 - i)
+                else:
+                    result[i] = str(result[i]) + 'x^' + str(len(funct) - 2 - i)
     for elm in result:
         if elm == 0:
             result.remove(elm)
-    if (str(result[-1]).isnumeric() and str(result[-2]).isnumeric()):
-        if (-root < 0):
-            result[-1] = str(result[-1]) + ' / (x - ' + str(root) + ')'
-        else:
-            result[-1] = str(result[-1]) + ' / (x + ' + str(root) + ')'
     if ('x' not in str(result[-2])):
-        result.append('(x - ' + str(root) + ')')
-    return " + ".join(str(x) for x in result)
+        result.append('/ (x - ' + str(root) + ')')
+    temp = " + ".join(str(x) for x in result)
+    if ('+ / ' in temp):
+        return temp.split(' + / ')[0] + ' / ' +  temp.split(' + / ')[1]
+    return temp
 
 def evaluate (equation):
     temp = format(equation)
