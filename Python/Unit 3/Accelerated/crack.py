@@ -12,7 +12,11 @@ def crack (txt):
     print("Friedman is", friedman_test(txt))
     print("Kasiski is", kasiski_test(txt))
     print("Enter desired keyword length: ")
-    cosets = make_cosets(txt, int(input()))
+    inputE = input()
+    if (inputE.isdigit() == False):
+        print("Invalid input, exiting.  You probably held the enter key for too long")
+        return
+    cosets = make_cosets(txt, int(inputE))
     keyword = ''
     for coset in cosets:
         keyword += find_likely_letter(coset)
